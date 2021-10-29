@@ -24,7 +24,7 @@ public class CustomMediaRecorder {
         mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
         mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.OGG);
         mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.OPUS);
-        mediaRecorder.setAudioSamplingRate(44100);
+        mediaRecorder.setAudioSamplingRate(16000);
         setRecorderOutputFile();
         mediaRecorder.prepare();
     }
