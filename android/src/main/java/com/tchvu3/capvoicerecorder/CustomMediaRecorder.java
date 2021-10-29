@@ -22,15 +22,16 @@ public class CustomMediaRecorder {
     private void generateMediaRecorder() throws IOException {
         mediaRecorder = new MediaRecorder();
         mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-        mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.AAC_ADTS);
-        mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
+        mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.OGG);
+        mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.OPUS);
+        mediaRecorder.setAudioSamplingRate(44100);
         setRecorderOutputFile();
         mediaRecorder.prepare();
     }
 
     private void setRecorderOutputFile() throws IOException {
         File outputDir = context.getCacheDir();
-        outputFile = File.createTempFile("voice_record_temp", ".aac", outputDir);
+        outputFile = File.createTempFile("voice_record_temp", ".ogg", outputDir);
         outputFile.deleteOnExit();
         mediaRecorder.setOutputFile(outputFile.getAbsolutePath());
     }
