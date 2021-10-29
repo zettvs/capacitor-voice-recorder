@@ -27,7 +27,7 @@ class CustomMediaRecorder {
             recordingSession = AVAudioSession.sharedInstance()
             try recordingSession.setCategory(AVAudioSession.Category.record)
             try recordingSession.setActive(true)
-            audioFilePath = getDirectoryToSaveAudioFile().appendingPathComponent("\(UUID().uuidString).aac")
+            audioFilePath = getDirectoryToSaveAudioFile().appendingPathComponent("\(UUID().uuidString).ogg")
             audioRecorder = try AVAudioRecorder(url: audioFilePath, settings: settings)
             audioRecorder.record()
             return true
