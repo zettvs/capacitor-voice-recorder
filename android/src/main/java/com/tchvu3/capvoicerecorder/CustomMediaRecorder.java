@@ -31,7 +31,7 @@ public class CustomMediaRecorder {
 
     private void setRecorderOutputFile() throws IOException {
         File outputDir = context.getCacheDir();
-        outputFile = File.createTempFile("voice_record_temp", ".ogg", outputDir);
+        outputFile = File.createTempFile("voice_record_temp", ".opus", outputDir);
         outputFile.deleteOnExit();
         mediaRecorder.setOutputFile(outputFile.getAbsolutePath());
     }
