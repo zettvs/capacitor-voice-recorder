@@ -6,22 +6,22 @@ import Foundation
 import AVFoundation
 
 class CustomMediaRecorder {
-    
+
     private var recordingSession: AVAudioSession!
     private var audioRecorder: AVAudioRecorder!
     private var audioFilePath: URL!
-    
+
     private let settings = [
         AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
-        AVSampleRateKey: 16000,
+        AVSampleRateKey: 44100,
         AVNumberOfChannelsKey: 1,
         AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
     ]
-    
+
     private func getDirectoryToSaveAudioFile() -> URL {
         return URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true)
     }
-    
+
     public func startRecording() -> Bool {
         do {
             recordingSession = AVAudioSession.sharedInstance()
@@ -35,7 +35,7 @@ class CustomMediaRecorder {
             return false
         }
     }
-    
+
     public func stopRecording() {
         do {
             audioRecorder.stop()
@@ -44,9 +44,9 @@ class CustomMediaRecorder {
             recordingSession = nil
         } catch {}
     }
-    
+
     public func getOutputFile() -> URL {
         return audioFilePath
     }
-    
+
 }
